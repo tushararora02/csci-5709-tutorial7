@@ -30,7 +30,7 @@ router.put("/update/:id", async (req, res) => {
     if (userdb) {
       const updateUser = {
         email: req.body.email,
-        firstname: req.body.firstname,
+        firstName: req.body.firstName,
       };
       const user = await User.findByIdAndUpdate(id, updateUser, { new: true });
       console.log(user);
@@ -60,7 +60,7 @@ router.post("/add", async (req, res) => {
     if (user) {
       const userdb = await User.create({
         email: user.email,
-        firstname: user.firstname,
+        firstName: user.firstName,
       });
       if (userdb) {
         res.status(201).json({
