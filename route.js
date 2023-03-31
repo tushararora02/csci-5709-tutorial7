@@ -86,7 +86,7 @@ router.post("/add", async (req, res) => {
 router.get("/user/:id", async (req, res) => {
   try {
     var id = req.params["id"];
-    const user = await User.find({ _id: id });
+    const user = await User.findOne({ _id: id });
     if (user) {
       res.status(200).json({
         success: true,
